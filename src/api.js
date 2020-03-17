@@ -36,7 +36,7 @@ export const movieApi = {
   popular: () => api.get("movie/popular", { params: Params }),
   movieDetail: id => api.get(`movie/${id}`, { params: DetailParams }),
   search: term =>
-    api.get("search/tv", {
+    api.get("search/movie", {
       params: {
         api_key: "844aae719266d28481b983a0d42e121e",
         language: "en-US",
