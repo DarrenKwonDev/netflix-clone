@@ -11,11 +11,20 @@ export default class extends React.Component {
     loading: true
   };
 
-  handleSubmmit = () => {
+  handleSubmmit = event => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
     }
+  };
+
+  updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    console.log(value);
+    this.setState({ searchTerm: value });
   };
 
   searchByTerm = async () => {
@@ -28,6 +37,7 @@ export default class extends React.Component {
       const {
         data: { results: tvResults }
       } = await tvApi.search(searchTerm);
+      // 검색별로 가져와 State에 저장함
       this.setState({ movieResults, tvResults });
     } catch (err) {
       console.log(err);
@@ -48,6 +58,7 @@ export default class extends React.Component {
         error={error}
         searchTerm={searchTerm}
         handleSubmmit={this.handleSubmmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
