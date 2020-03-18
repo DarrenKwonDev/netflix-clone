@@ -5,6 +5,7 @@ import Loader from "../../Components/Loader";
 import Section from "../../Components/Section";
 import Message from "../../Components/Message";
 import Poster from "../../Components/Poster";
+import Helmet from "react-helmet";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -31,6 +32,9 @@ const SearchPresenter = ({
   updateTerm
 }) => (
   <Container>
+    <Helmet>
+      <title>Search | Netfilx</title>
+    </Helmet>
     <Form onSubmit={handleSubmmit}>
       <Input
         placeholder="Search Movie or TV Show..."
@@ -66,7 +70,9 @@ const SearchPresenter = ({
                 title={show.original_name}
                 imageUrl={show.poster_path}
                 rating={show.vote_average}
-                year={show.first_air_date.substring(0, 4)}
+                year={
+                  show.first_air_date && show.first_air_date.substring(0, 4)
+                }
               ></Poster>
             ))}
           </Section>
