@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
-  background-image: url(${props => props.bgUrl});
+  background-image: url(${(props) => props.bgUrl});
   background-size: cover;
   height: 180px;
   border-radius: 15px;
@@ -79,7 +79,7 @@ Poster.propTypes = {
   title: PropTypes.string.isRequired,
   rating: PropTypes.number,
   year: PropTypes.string,
-  isMovie: PropTypes.bool
+  isMovie: PropTypes.bool,
 };
 
 export default Poster;

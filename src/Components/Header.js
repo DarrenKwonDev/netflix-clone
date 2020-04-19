@@ -26,8 +26,8 @@ const Item = styled.li`
   width: 100px;
   text-align: center;
   border-bottom: 5px solid
-    ${props => (props.current ? "crimson" : "transparent")};
-  transition: border-bottom 0.3s ease-in-out;
+    ${(props) => (props.current ? "crimson" : "transparent")};
+  transition: border-bottom 0.5s ease-in-out;
 `;
 
 const SLink = styled(Link)`

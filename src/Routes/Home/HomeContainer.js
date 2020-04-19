@@ -8,33 +8,34 @@ export default class extends React.Component {
     upComing: null,
     popular: null,
     error: null,
-    loading: true
+    loading: true,
   };
 
   async componentDidMount() {
     try {
       const {
-        data: { results: nowPlaying }
+        data: { results: nowPlaying },
       } = await movieApi.nowPlaying();
 
       const {
-        data: { results: upComing }
+        data: { results: upComing },
       } = await movieApi.upComing();
 
       const {
-        data: { results: popular }
+        data: { results: popular },
       } = await movieApi.popular();
+
       this.setState({
         nowPlaying,
         upComing,
-        popular
+        popular,
       });
     } catch (err) {
       console.log(err);
       this.setState({ error: "Can't get movie infomation" });
     } finally {
       this.setState({
-        loading: false
+        loading: false,
       });
     }
   }
