@@ -56,7 +56,7 @@ export default ({
     GetProduction();
   }, [id, pathname]);
 
-  if (Company !== undefined) {
+  if (Company !== undefined && Company !== []) {
     return (
       <>
         <BoardWrapper>
@@ -88,5 +88,5 @@ export default ({
       </>
     );
   }
-  return <div>No info</div>;
+  return <BoardWrapper>No info</BoardWrapper>;
 };

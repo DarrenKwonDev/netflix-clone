@@ -6,6 +6,11 @@ const Big = styled.div`
   font-size: 2em;
   margin: 1em;
 `;
+const BoardWrapper = styled.div`
+  background-color: rgba(125, 125, 125, 0.7);
+  padding: 1em;
+  border-radius: 15px;
+`;
 
 export default ({
   match: {
@@ -38,15 +43,19 @@ export default ({
   if (Country !== undefined) {
     return (
       <>
-        {Country.map((e) => (
-          <Big key={e.name}>{e.name}</Big>
-        ))}
+        <BoardWrapper>
+          {Country.map((e) => (
+            <Big key={e.name}>{e.name}</Big>
+          ))}
+        </BoardWrapper>
       </>
     );
   }
   return (
     <>
-      <Big>No info</Big>
+      <BoardWrapper>
+        <Big>No info</Big>
+      </BoardWrapper>
     </>
   );
 };

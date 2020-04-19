@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Loader from "../../Components/Loader";
 import Company from "../Company";
 import Country from "../Country";
+import Season from "../Season";
 import Helmet from "react-helmet";
 import { Link, Route } from "react-router-dom";
 
@@ -200,8 +201,14 @@ const DetailPresenter = ({ result, error, loading, path, url, videos }) =>
               <Link to={`${url}/country`}>
                 <BTN>Production countries</BTN>
               </Link>
+              {path.includes("/show") ? (
+                <Link to={`${url}/season`}>
+                  <BTN>Season</BTN>
+                </Link>
+              ) : null}
               <Route path={`${path}/company`} component={Company}></Route>
               <Route path={`${path}/country`} component={Country}></Route>
+              <Route path={`${path}/season`} component={Season}></Route>
             </div>
           </Data>
         </Content>
