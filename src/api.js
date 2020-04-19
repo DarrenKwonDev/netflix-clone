@@ -1,4 +1,7 @@
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const Params = {
   api_key: "844aae719266d28481b983a0d42e121e",
@@ -19,7 +22,7 @@ export const tvApi = {
   topRated: () => api.get("tv/top_rated", { params: Params }),
   popular: () => api.get("tv/popular", { params: Params }),
   airingToday: () => api.get("/tv/airing_today", { params: Params }),
-  getVideo: (id) => api.get(`tv/${id}/videos`, { params: Params }),
+  getVideo: (id) => api.get(`tv/${id}/videos`, { params: DetailParams }),
   tvDetail: (id) => api.get(`tv/${id}`, { params: DetailParams }),
   search: (term) =>
     api.get("search/tv", {
